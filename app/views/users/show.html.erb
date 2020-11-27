@@ -1,0 +1,10 @@
+<div class="container">
+<h1><%= @user.name %>'s facebook page</h1>
+<h3>email address: <%= @user.email %></h>
+<hr>
+<% if logged_in? %>
+  <%= link_to 'View posts', posts_path %>
+<%else%>
+  <%= link_to 'Log in', new_session_path%>
+<%end%>
+</div>
