@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h1>favorites</h1>
+<table class="container">
+  <thead>
+
+    <tr>
+
+      <th>User</th>
+      <th>Image</th>
+      <th>Content</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorites| %>
+      <tr>
+        <td> <%= favorite.user.name %> </td>
+        <td><%= image_tag favorite.image.url, style:"width:150px" %></td>
+        <td><%= favorite.content %></td>
+        <td><button type="button" class="btn btn-secondary"><%= link_to 'like', favorite %></button></td>
+        <td><button type="button" class="btn btn-secondary"><%= link_to 'unlike', favorite %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button type="button" class="btn btn-success"><%= link_to 'New Post', new_post_path %></button>
+</div>

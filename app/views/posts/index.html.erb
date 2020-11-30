@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
 <div class="container">
+<p id="notice"><%= notice %></p>
 <h1>Posts</h1>
 
 <table>
@@ -15,12 +15,13 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user.name %></td>
-        <td><%= image_tag post.image.url, style:"width:250px" %></td>
+        <td> <%= post.user.name %> </td>
+        <td><%= image_tag post.image.url, style:"width:150px" %></td>
         <td><%= post.content %></td>
         <td><button type="button" class="btn btn-secondary"><%= link_to 'Show', post %></button></td>
         <td><button type="button" class="btn btn-secondary"><%= link_to 'Edit', edit_post_path(post) %></button></td>
         <td><button type="button" class="btn btn-secondary"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        
       </tr>
     <% end %>
   </tbody>
