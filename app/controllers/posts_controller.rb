@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.show(post_params)
     @favorite = current_user.favorites.find_by(post_id: @post.id)
   end
 
@@ -24,22 +23,21 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @post = current_user.posts.build(post_params)
+    if params[:back]
+      render :new
+    else
+      @post.save
+      PostMailer.post_mail(@post).deliver
+      flash[:notice] = 'post created'
+      redirect_to posts_path
     end
   end
+
 
   def update
     @post = Post.find(params[:id])
@@ -68,6 +66,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-     params.require(:post).permit(:image, :image_cache, :content)
+     params.require(:post).permit(:id,:image, :image_cache, :posts, :user_id, :name, :email)
   end
 end
