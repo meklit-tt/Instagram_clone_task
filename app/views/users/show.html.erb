@@ -12,8 +12,8 @@
 
           <% if logged_in? %>
               <% if @user == current_user %>
-                <%= link_to 'New Post', new_post_path , class: "btn btn-light "%>
-                <%= link_to 'Edit Info', edit_user_path(@user) , class: "btn btn-secondary "%>
+                <button type="button" class="btn btn-light"><%= link_to 'New Post', new_post_path %></button>
+                <button type="button" class="btn btn-secondary"><%= link_to 'Edit Info', edit_user_path(@user) %></button>
                 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
               <% end %>
           <% end %>
