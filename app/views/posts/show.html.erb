@@ -5,9 +5,7 @@
 <p><strong>Image:</strong>
   <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
 </p>
-
 <p><%= @post.posts %></p>
-
 <% unless @post.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'Unfavorite', favorite_path(id: @favorite.id), method: :delete %>
@@ -15,7 +13,6 @@
     <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post %>
   <% end %>
 <% end %>
-
 <% if @post.user_id == current_user.id %>
   <%= link_to 'Edit', edit_post_path(@post) %>
   <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>

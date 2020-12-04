@@ -6,8 +6,6 @@
 <article class="post">
 <% if logged_in? %>
   <button type="button" class="btn btn-default"><%= link_to 'Show', post %>
-
-
   <% end %>
   <small><strong><%= post.user.name %></strong></small>
   <% if post.image && post.image.url %>

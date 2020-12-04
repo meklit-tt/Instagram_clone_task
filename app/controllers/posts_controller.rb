@@ -37,8 +37,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     end
   end
-
-
+  
   def update
     @post = Post.find(params[:id])
     respond_to do |format|

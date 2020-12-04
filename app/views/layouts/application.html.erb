@@ -9,7 +9,6 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
     <header class= "header">
     <p class= "logo"><%= image_tag("icon.png") %> </p>
     </header>
@@ -18,13 +17,13 @@
     <% end %>
     <div class="top">
     <% if logged_in? %>
-    <button type="button" class="btn btn-default"><%= link_to "Profile", user_path(current_user.id) %></button>
-    <button type="button" class="btn btn-default"> <%= link_to "New Post", new_post_path %></button>
-    <button type="button" class="btn btn-default"><%= link_to "Favorite", favourite_user_path(current_user.id) %></button>
-    <button type="button" class="btn btn-default"><%= link_to "Logout", session_path(current_user.id), method: :delete %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Profile", user_path(current_user.id) %></button>
+       <button type="button" class="btn btn-default"> <%= link_to "New Post", new_post_path %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Favorite", favourite_user_path(current_user.id) %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Logout", session_path(current_user.id), method: :delete %></button>
     <% else %>
-    <button type="button" class="btn btn-default"><%= link_to "Sign up", new_user_path %></button>
-    <button type="button" class="btn btn-default"><%= link_to "Login", new_session_path %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Sign up", new_user_path %></button>
+       <button type="button" class="btn btn-default"><%= link_to "Login", new_session_path %></button>
     <% end %>
     </div>
     <%= yield %>
