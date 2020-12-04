@@ -5,6 +5,7 @@
   </div>
             <span style="font-size:36px">
               <%= @user.name %><br>
+              <%= image_tag @user.icon.url(), style:'max-width:150px; float:right', class:'img_rounded' %>
             </span>
             <strong>Email:</strong>
               <%= @user.email %>
