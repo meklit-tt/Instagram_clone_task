@@ -8,8 +8,6 @@
             </span>
             <strong>Email:</strong>
               <%= @user.email %>
-
-
           <% if logged_in? %>
               <% if @user == current_user %>
                 <button type="button" class="btn btn-default"><%= link_to 'New Post', new_post_path %></button>
@@ -17,5 +15,4 @@
                 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger "%>
               <% end %>
           <% end %>
-
 </div>
