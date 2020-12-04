@@ -21,6 +21,8 @@ gem 'bcrypt'
 
 gem 'carrierwave'
 
+gem 'faker'
+
 gem 'mini_magick'
 
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -29,7 +31,7 @@ group :development, :test do
 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-  gem'dotenv-rails' 
+  gem'dotenv-rails'
 end
 
 group :development do
